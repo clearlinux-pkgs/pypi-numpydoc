@@ -4,7 +4,7 @@
 #
 Name     : pypi-numpydoc
 Version  : 1.2.1
-Release  : 48
+Release  : 49
 URL      : https://files.pythonhosted.org/packages/9c/8f/ebc93df00a70b2ee298a2e67138d54adfb1ae5a3fb267d6d1f9b9c99293e/numpydoc-1.2.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/9c/8f/ebc93df00a70b2ee298a2e67138d54adfb1ae5a3fb267d6d1f9b9c99293e/numpydoc-1.2.1.tar.gz
 Summary  : Sphinx extension to support docstrings in Numpy format
@@ -14,10 +14,10 @@ Requires: pypi-numpydoc-license = %{version}-%{release}
 Requires: pypi-numpydoc-python = %{version}-%{release}
 Requires: pypi-numpydoc-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
-BuildRequires : nose
 BuildRequires : pypi(jinja2)
+BuildRequires : pypi(nose)
+BuildRequires : pypi(pytest)
 BuildRequires : pypi(sphinx)
-BuildRequires : pytest
 
 %description
 =====================================
@@ -62,7 +62,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1648738707
+export SOURCE_DATE_EPOCH=1648739591
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -72,6 +72,7 @@ export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
 export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
 export MAKEFLAGS=%{?_smp_mflags}
+pypi-dep-fix.py . Jinja2
 python3 setup.py build
 
 %install
@@ -80,6 +81,7 @@ rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-numpydoc
 cp %{_builddir}/numpydoc-1.2.1/LICENSE.txt %{buildroot}/usr/share/package-licenses/pypi-numpydoc/0a9bbd882e5acb52126c545e871416f67b99e445
 python3 -tt setup.py build  install --root=%{buildroot}
+pypi-dep-fix.py %{buildroot} Jinja2
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
