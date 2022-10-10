@@ -1,5 +1,5 @@
 PKG_NAME := pypi-numpydoc
-URL = https://files.pythonhosted.org/packages/d6/fb/dce2345676623f26ea9a8c9a8c3485a4ea232cb598a6f5e8be8d32947bed/numpydoc-1.4.0.tar.gz
+URL = https://files.pythonhosted.org/packages/27/59/e9ee6fc936961fd7012167c8a3191599206deec2e6e26882f1dd1b42b761/numpydoc-1.5.0.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
