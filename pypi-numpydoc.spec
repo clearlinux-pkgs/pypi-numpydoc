@@ -7,7 +7,7 @@
 #
 Name     : pypi-numpydoc
 Version  : 1.8.0
-Release  : 70
+Release  : 71
 URL      : https://files.pythonhosted.org/packages/ee/59/5d1d1afb0b9598e21e7cda477935188e39ef845bcf59cb65ac20845bfd45/numpydoc-1.8.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/ee/59/5d1d1afb0b9598e21e7cda477935188e39ef845bcf59cb65ac20845bfd45/numpydoc-1.8.0.tar.gz
 Summary  : Sphinx extension to support docstrings in Numpy format
